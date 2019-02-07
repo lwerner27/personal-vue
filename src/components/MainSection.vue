@@ -26,7 +26,7 @@
     }
     .slide {
         height: 100vh;
-        background: linear-gradient( rgba(0, 19, 64, 0.6), rgba(0, 19, 64, 0.6) ), url('../assets/MinneapolisSkylineBW.png');
+        background: linear-gradient( rgba(0, 19, 64, 0.6), rgba(0, 19, 64, 0.6) ), url('../assets/MinneapolisSkylineB-min.png');
         background-size: cover;
     }
     .main-title {
