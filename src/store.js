@@ -5,6 +5,8 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    isLoggedIn: false,
+    jwt: null,
     repos: [],
     featuredProjects: [
       {
@@ -34,6 +36,12 @@ export default new Vuex.Store({
   mutations: {
     ADD_REPOS: (state, repos) => {
       state.repos = repos
+    },
+    UPDATE_LOGIN_STATUS: (state) => {
+      state.isLoggedIn = true
+    },
+    UPDATE_JWT: (state, jwt) => {
+      state.jwt = jwt
     }
   },
   actions: {
