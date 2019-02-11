@@ -3,6 +3,7 @@
         <div class="container">
             <div class="row">
                 <form class="col s12 m4 offset-m4 z-depth-3">
+                    <h5 class="center">LOGIN</h5>
                     <div class="row">
                         <div class="input-field col s12">
                             <input v-model="username" id="username" type="text">
