@@ -27,6 +27,7 @@
 
 <script>
 import { mapState, mapMutations } from 'vuex';
+import axios from "axios"
 export default {
     data: () => (
         {
@@ -36,6 +37,7 @@ export default {
     ),
     computed: {
         ...mapState([
+            'serverAddress',
             'isLoggedIn',
             'jwt'
         ])
@@ -50,6 +52,12 @@ export default {
         },
         updateJwt: function(jwt) {
             this.UPDATE_JWT(jwt)
+        },
+        attemptLogin: function(serverAdderss, username, password) {
+            axios.post(this.serverAdderss + "auth/login", {username, password})
+            .then(res => {
+                console.log(res.data)
+            })
         }
     }
 }

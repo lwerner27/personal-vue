@@ -5,6 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    serverAddress:"http://localhost:5000/",
     isLoggedIn: false,
     jwt: null,
     repos: [],
