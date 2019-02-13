@@ -16,7 +16,7 @@
                             <label for="password">Password</label>
                         </div>
                     </div>
-                    <button class="btn waves-effect waves-light blue darken-4" type="submit" name="action">Submit
+                    <button v-on:click="attemptLogin" class="btn waves-effect waves-light blue darken-4">Submit
                         <i class="material-icons right">send</i>
                     </button>
                 </form>
@@ -53,11 +53,23 @@ export default {
         updateJwt: function(jwt) {
             this.UPDATE_JWT(jwt)
         },
-        attemptLogin: function(serverAdderss, username, password) {
-            axios.post(this.serverAdderss + "auth/login", {username, password})
-            .then(res => {
-                console.log(res.data)
+        attemptLogin: function(event) {
+            event.preventDefault()
+            alert(this.serverAddress + "auth/login")
+            axios.post(this.serverAddress + 'auth/login', { 
+                username: this.username, 
+                password: this.password 
             })
+            .then(res => {
+                if (res.data.success) {
+                    alert("You have logged in")
+                    this.updateLoginStatus()
+                    this.updateJwt(res.data.token)
+                }
+            })
+            .catch(error => {
+                console.log(error)
+            });
         }
     }
 }
